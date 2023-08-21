@@ -32,7 +32,9 @@ jobs:
           output_location: "build" # Built app content directory - optional
           # skip_app_build: true
           ###### End of Repository/Build Configurations ######
-
+        env: # Add environment variables here
+        REACT_APP_AZURE_CLIENT_ID: ${{ secrets.REACT_APP_AZURE_CLIENT_ID }}
+        REACT_APP_AZURE_TENANT_ID: ${{ secrets.REACT_APP_AZURE_TENANT_ID }}
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
