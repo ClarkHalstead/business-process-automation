@@ -12,13 +12,12 @@ export function Home() {
   return (
     <>
       <AuthenticatedTemplate>
-
         <App/>
       </AuthenticatedTemplate>
 
       <UnauthenticatedTemplate>
         <Typography variant="h6">
-          <center>Please sign-in to see your profile information.</center>
+          <center>Welcome, Please Click Login to Proceed.</center>
         </Typography>
       </UnauthenticatedTemplate>
     </>

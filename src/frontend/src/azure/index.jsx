@@ -10,59 +10,8 @@ import { Home } from "./Home";
 import { Profile } from "./Profile";
 import { Logout } from "./Logout";
 
-// const App = () => {
-//   const [msalInstance, setMsalInstance] = useState(null);
-//   const [account, setAccount] = useState(null);
 
-//   useEffect(() => {
-//     async function startMs() {
-//       const pca = new PublicClientApplication(msalConfig);
-//       await pca.initialize();
 
-//       const handleRedirect = (event) => {
-//         if (event.eventType === EventType.LOGIN_SUCCESS) {
-//           setAccount(event.payload.account);
-//         }
-//       };
-
-//       pca.addEventCallback(handleRedirect);
-
-//       pca.handleRedirectPromise().then((response) => {
-//         if (response && !response.isEmpty) {
-//           setAccount(response.accounts[0]);
-//         }
-//       });
-
-//       return () => {
-//         pca.removeEventCallback(handleRedirect);
-//       };
-//     }
-//     startMs();
-//   }, []);
-
-//   const login = async () => {
-//     await msalInstance.loginRedirect();
-//   };
-
-//   const logout = async () => {
-//     await msalInstance.logout();
-//     setAccount(null);
-//   };
-
-//   return (
-//     <div>
-//       <h1>React App with Azure AD Authentication</h1>
-//       {account ? (
-//         <div>
-//           <p>Welcome, {account.username}</p>
-//           <button onClick={logout}>Logout</button>
-//         </div>
-//       ) : (
-//         <button onClick={login}>Login</button>
-//       )}
-//     </div>
-//   );
-// };
 function App({ pca }) {
   // The next 3 lines are optional. This is how you configure MSAL to take advantage of the router's navigate functions when MSAL redirects between pages in your app
   const navigate = useNavigate();
@@ -86,12 +35,6 @@ function Pages() {
   return (
     <Routes>
       <Route path="/profile" element={<Profile />} />
-      {/* <Route path="/profileWithMsal" element={<ProfileWithMsal />} /> */}
-      {/* <Route path="/profileRawContext" element={<ProfileRawContext />} /> */}
-      {/* <Route
-        path="/profileUseMsalAuthenticationHook"
-        element={<ProfileUseMsalAuthenticationHook />}
-      /> */}
       <Route path="/logout" element={<Logout />} />
       <Route path="/" element={<Home />} />
     </Routes>

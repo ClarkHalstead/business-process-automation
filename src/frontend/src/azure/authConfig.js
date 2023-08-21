@@ -1,4 +1,6 @@
 import { LogLevel } from "@azure/msal-browser";
+import dotenv from "dotenv";
+import expand from "dotenv-expand";
 // Browser check variables
 // If you support IE, our recommendation is that you sign-in using Redirect APIs
 // If you as a developer are testing using Edge InPrivate mode, please add "isEdge" to the if check
@@ -12,11 +14,13 @@ const isEdge = msedge > 0;
 const isFirefox = firefox > 0; // Only needed if you need to support the redirect flow in Firefox incognito
 
 // Config object to be passed to Msal on creation
+
+const myEnv = dotenv.config();
+expand.expand(myEnv);
 export const msalConfig = {
   auth: {
-    clientId: "656b40f0-4897-41bb-972c-4da66b813deb",
-    authority:
-      "https://login.microsoftonline.com/68b865d5-cf18-4b2b-82a4-a4eddb9c5237",
+    clientId: process.env.REACT_APP_AZURE_CLIENT_ID,
+    authority: `https://login.microsoftonline.com/${process.env.REACT_APP_AZURE_TENANT_ID}`,
     redirectUri: "/",
     postLogoutRedirectUri: "/",
   },
