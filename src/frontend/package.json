@@ -5,6 +5,8 @@
   "dependencies": {
     "@azure/cosmos": "^3.17.3",
     "@azure/functions": "^3.5.1",
+    "@azure/msal-browser": "^3.0.1",
+    "@azure/msal-react": "^2.0.1",
     "@fluentui/react": "^8.107.0",
     "@fluentui/react-icons": "^2.0.199",
     "@fluentui/react-icons-northstar": "^0.66.4",
